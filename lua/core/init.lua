@@ -8,6 +8,12 @@ g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 g.toggle_theme_icon = "   "
 g.transparency = config.ui.transparency
 
+local options = { noremap = true }
+vim.keymap.set("i", "jk", "<Esc>", options)
+
+
+
+
 -------------------------------------- options ------------------------------------------
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
@@ -28,7 +34,7 @@ opt.smartcase = true
 opt.mouse = "a"
 
 -- Numbers
-opt.number = true
+-- opt.number = true
 opt.numberwidth = 2
 opt.ruler = false
 
