@@ -27,8 +27,8 @@ return {
         "css-lsp",
         "prettier",
         "pyright",
-        "isort",
-        "black",
+        -- "isort",
+        -- "black",
       },
     },
   },
@@ -66,5 +66,11 @@ return {
     config = function()
       require("render-markdown").setup {}
     end,
+  },
+
+  {
+    "kraftwerk28/gtranslate.nvim",
+    lazy = false,
+    opts = {},
   },
 }
