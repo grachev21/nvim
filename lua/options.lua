@@ -6,4 +6,9 @@ local o = vim.o
 o.cursorlineopt = "both" -- to enable cursorline!
 vim.wo.number = false
 
-vim.opt.wrap = false
+-- Включите перенос строк
+vim.opt.wrap = true
+
+-- Настройте перенос строк по словам
+vim.opt.linebreak = true
+

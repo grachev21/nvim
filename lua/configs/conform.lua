@@ -2,9 +2,10 @@
 local options = {
   -- Список форматтеров для различных типов файлов
   formatters_by_ft = {
-    lua = { "stylua" }, -- Для Lua файлов используем форматтер stylua
-    css = { "prettier" }, -- Для CSS файлов используем форматтер prettier
-    html = { "prettier" }, -- Для HTML файлов используем форматтер prettier
+    lua = { "stylua" },            -- Для Lua файлов используем форматтер stylua
+    css = { "prettier" },          -- Для CSS файлов используем форматтер prettier
+    html = { "prettier" },         -- Для HTML файлов используем форматтер prettier
+    javascript = { "prettier" },
     python = { "isort", "black" }, -- Для Python файлов используем форматтеры isort и black
   },
 
@@ -18,5 +19,4 @@ local options = {
 }
 
 -- Возвращаем таблицу опций
-return options
-
+require("conform").setup(options)
