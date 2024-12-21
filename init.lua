@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
 
+
 -- load plugins
 require("lazy").setup({
   {
@@ -20,9 +21,9 @@ require("lazy").setup({
     lazy = false,
     branch = "v2.5",
     import = "nvchad.plugins",
-    config = function ()
+    config = function()
       require "options"
-    end
+    end,
   },
 
   { import = "plugins" },

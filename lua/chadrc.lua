@@ -3,13 +3,13 @@ local options = {
 
   -- Настройки базовой темы
   base46 = {
-    theme = "chocolate", -- тема по умолчанию
+    theme = "bearded-arc", -- тема по умолчанию
     hl_add = {}, -- дополнительные настройки подсветки
     hl_override = {}, -- переопределение настроек подсветки
     integrations = {}, -- интеграции
     changed_themes = {}, -- измененные темы
     transparency = true, -- прозрачность
-    theme_toggle = { "chocolate", "one_light" }, -- переключение между темами
+    theme_toggle = { "bearded-arc", "one_light" }, -- переключение между темами
   },
 
   -- Настройки пользовательского интерфейса
@@ -120,4 +120,3 @@ local options = {
 local status, chadrc = pcall(require, "chadrc")
 -- Возвращение объединенной таблицы options и chadrc
 return vim.tbl_deep_extend("force", options, status and chadrc or {})
-

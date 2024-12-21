@@ -92,22 +92,37 @@ return {
     opts = {},
   },
 
-    -- Установка плагина nvim-cmp для автодополнения
+  -- Установка плагина nvim-cmp для автодополнения
   {
     "hrsh7th/nvim-cmp",
     config = function()
       require "configs.cmp"
     end,
   },
-    -- Установка плагина lspkind
+  -- Установка плагина lspkind
   {
     "onsails/lspkind-nvim",
     lazy = false, -- Отключаем ленивую загрузку
   },
 
-    -- Установка плагина nvim-cmp
+  -- Установка плагина nvim-cmp
   {
     "hrsh7th/nvim-cmp",
     lazy = false, -- Отключаем ленивую загрузку
+  },
+  {
+    "ggandor/leap.nvim",
+    lazy = false,
+    config = function()
+      require("leap").add_default_mappings(true)
+    end,
+  },
+
+  {
+    "L3MON4D3/LuaSnip",
+    lazy = false,
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load { paths = { "../../snippets/" } }
+    end,
   },
 }

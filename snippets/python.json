@@ -1,0 +1,10 @@
+// snippets/python.json
+{
+  "Print to console": {
+    "prefix": "log",
+    "body": [
+      "print('$1')"
+    ],
+    "description": "Log output to console"
+  }
+}

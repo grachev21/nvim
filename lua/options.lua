@@ -11,4 +11,3 @@ vim.opt.wrap = true
 
 -- Настройте перенос строк по словам
 vim.opt.linebreak = true
-
