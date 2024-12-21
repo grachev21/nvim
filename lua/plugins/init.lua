@@ -117,12 +117,12 @@ return {
       require("leap").add_default_mappings(true)
     end,
   },
-
+  -- Добавьте плагин nvim-snippets
   {
-    "L3MON4D3/LuaSnip",
-    lazy = false,
+    "garymjr/nvim-snippets",
+    after = "nvim-cmp",
     config = function()
-      require("luasnip.loaders.from_vscode").lazy_load { paths = { "../../snippets/" } }
+      require("luasnip.loaders.from_vscode").lazy_load()
     end,
   },
 }
