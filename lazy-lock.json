@@ -31,7 +31,6 @@
   "render-markdown": { "branch": "main", "commit": "0022a579ac7355966be5ade77699b88c76b6a549" },
   "telescope.nvim": { "branch": "master", "commit": "2eca9ba22002184ac05eddbe47a7fe2d5a384dfc" },
   "ui": { "branch": "v3.0", "commit": "d42290b6961c2c96af6bbccbaad375cc3e8fd96e" },
-  "vim-bookmarks": { "branch": "master", "commit": "9cc5fa7ecc23b052bd524d07c85356c64b92aeef" },
   "volt": { "branch": "main", "commit": "0cdfa1dfbbfc8fda340054915991fda188db8d8e" },
   "which-key.nvim": { "branch": "main", "commit": "8ab96b38a2530eacba5be717f52e04601eb59326" }
 }

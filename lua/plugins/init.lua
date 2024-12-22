@@ -132,9 +132,4 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load {}
     end,
   },
-
-  {
-    "MattesGroeger/vim-bookmarks",
-    lazy = false,
-  },
 }
