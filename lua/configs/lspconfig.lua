@@ -13,7 +13,7 @@ local nvlsp = require "nvchad.configs.lspconfig" -- Подключаем кон�
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = nvlsp.on_attach, -- Функция, вызываемая при присоединении клиента LSP
-    on_init = nvlsp.on_init,     -- Функция, вызываемая при инициализации клиента LSP
+    on_init = nvlsp.on_init, -- Функция, вызываемая при инициализации клиента LSP
     capabilities = nvlsp.capabilities, -- Возможности клиента LSP
   }
 end
@@ -21,10 +21,9 @@ end
 -- Пример настройки отдельного сервера LSP, например, для TypeScript
 lspconfig.ts_ls.setup {
   on_attach = nvlsp.on_attach, -- Функция, вызываемая при присоединении клиента LSP
-  on_init = nvlsp.on_init,     -- Функция, вызываемая при инициализации клиента LSP
+  on_init = nvlsp.on_init, -- Функция, вызываемая при инициализации клиента LSP
   capabilities = nvlsp.capabilities, -- Возможности клиента LSP
 }
-
 
 -- Настройка LSP для Tailwind CSS
 lspconfig.tailwindcss.setup {
@@ -46,4 +45,3 @@ lspconfig.tailwindcss.setup {
     },
   },
 }
-

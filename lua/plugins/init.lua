@@ -1,8 +1,15 @@
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   group = augroup,
+--   callback = function()
+--     vim.lsp.buf.format { async = false }
+--   end,
+-- })
 return {
   -- Настройка плагина conform.nvim для форматирования кода
   {
     "stevearc/conform.nvim",
-    event = "BufWritePre", -- Событие, при котором будет выполняться форматирование (перед сохранением буфера)
+    event = "BufWritePre",      -- Событие, при котором будет выполняться форматирование (перед сохранением буфера)
     config = function()
       require "configs.conform" -- Подключаем конфигурацию для conform.nvim
     end,
@@ -13,7 +20,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults() -- Загружаем конфигурации по умолчанию для LSP
-      require "configs.lspconfig" -- Подключаем дополнительные конфигурации для LSP
+      require "configs.lspconfig"                    -- Подключаем дополнительные конфигурации для LSP
     end,
   },
 
@@ -22,14 +29,14 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "lua-language-server", -- LSP сервер для Lua
-        "stylua", -- Форматтер для Lua
-        "html-lsp", -- LSP сервер для HTML
-        "css-lsp", -- LSP сервер для CSS
-        "prettier", -- Форматтер для CSS и HTML
-        "pyright", -- LSP сервер для Python
-        "isort", -- Форматтер для Python (закомментировано)
-        "black", -- Форматтер для Python (закомментировано)
+        "lua-language-server",         -- LSP сервер для Lua
+        "stylua",                      -- Форматтер для Lua
+        "html-lsp",                    -- LSP сервер для HTML
+        "css-lsp",                     -- LSP сервер для CSS
+        "prettier",                    -- Форматтер для CSS и HTML
+        "pyright",                     -- LSP сервер для Python
+        "isort",                       -- Форматтер для Python (закомментировано)
+        "black",                       -- Форматтер для Python (закомментировано)
         "tailwindcss-language-server", -- LSP сервер для Tailwind CSS
       },
     },
@@ -51,14 +58,14 @@ return {
         enable = true,
       },
       ensure_installed = {
-        "vim", -- Поддержка Vim
-        "lua", -- Поддержка Lua
-        "vimdoc", -- Поддержка Vimdoc
-        "html", -- Поддержка HTML
-        "css", -- Поддержка CSS
-        "python", -- Поддержка Python
-        "javascript", -- Поддержка JavaScript
-        "markdown", -- Поддержка Markdown
+        "vim",             -- Поддержка Vim
+        "lua",             -- Поддержка Lua
+        "vimdoc",          -- Поддержка Vimdoc
+        "html",            -- Поддержка HTML
+        "css",             -- Поддержка CSS
+        "python",          -- Поддержка Python
+        "javascript",      -- Поддержка JavaScript
+        "markdown",        -- Поддержка Markdown
         "markdown_inline", -- Поддержка встроенного Markdown
         "tsx",
       },
@@ -75,8 +82,8 @@ return {
   -- Настройка плагина markdown.nvim для работы с Markdown
   {
     "MeanderingProgrammer/markdown.nvim",
-    lazy = false, -- Отключаем ленивую загрузку
-    name = "render-markdown", -- Имя плагина, необходимо только если у вас есть другой плагин с именем markdown.nvim
+    lazy = false,                                                                  -- Отключаем ленивую загрузку
+    name = "render-markdown",                                                      -- Имя плагина, необходимо только если у вас есть другой плагин с именем markdown.nvim
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- Зависимости, если вы используете mini.nvim suite
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- Зависимости, если вы используете standalone mini plugins
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- Зависимости, если вы предпочитаете nvim-web-devicons
@@ -122,7 +129,20 @@ return {
     "garymjr/nvim-snippets",
     after = "nvim-cmp",
     config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_vscode").lazy_load {}
+    end,
+  },
+
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require "configs.null-ls"
+    end,
+  },
+  {
+    "MunifTanjim/prettier.nvim",
+    config = function()
+      require "configs.prettier"
     end,
   },
 }
