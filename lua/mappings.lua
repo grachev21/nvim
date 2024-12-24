@@ -8,6 +8,8 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 map("v", "<leader>te", ":Translate English<CR>", opts)
+map("v", "<leader>tr", ":Translate Russian<CR>", opts)
+map("n", "<leader>ln", ":e /home/grachev/Disk/notes/<CR>", opts)
 -- init.lua или mappings.lua
 
 -- Настройка сочетаний клавиш для vim-bookmarks
