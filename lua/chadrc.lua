@@ -3,13 +3,13 @@ local options = {
 
   -- Настройки базовой темы
   base46 = {
-    theme = "gruvbox",                         -- тема по умолчанию
+    theme = "everblush",                         -- тема по умолчанию
     hl_add = {},                                   -- дополнительные настройки подсветки
     hl_override = {},                              -- переопределение настроек подсветки
     integrations = {},                             -- интеграции
     changed_themes = {},                           -- измененные темы
-    -- transparency = true, -- прозрачность
-    theme_toggle = { "gruvbox", "one_light" }, -- переключение между темами
+    transparency = true, -- прозрачность
+    theme_toggle = { "everblush", "one_light" }, -- переключение между темами
   },
 
   -- Настройки пользовательского интерфейса

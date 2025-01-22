@@ -35,8 +35,8 @@ return {
         "css-lsp", -- LSP сервер для CSS
         "prettier", -- Форматтер для CSS и HTML
         "pyright", -- LSP сервер для Python
-        "isort", -- Форматтер для Python (закомментировано)
-        "black", -- Форматтер для Python (закомментировано)
+        -- "isort", -- Форматтер для Python (закомментировано)
+        -- "black", -- Форматтер для Python (закомментировано)
         "tailwindcss-language-server", -- LSP сервер для Tailwind CSS
       },
     },
@@ -80,17 +80,17 @@ return {
   },
 
   -- Настройка плагина markdown.nvim для работы с Markdown
-  {
-    "MeanderingProgrammer/markdown.nvim",
-    lazy = false, -- Отключаем ленивую загрузку
-    name = "render-markdown", -- Имя плагина, необходимо только если у вас есть другой плагин с именем markdown.nvim
-    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- Зависимости, если вы используете mini.nvim suite
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- Зависимости, если вы используете standalone mini plugins
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- Зависимости, если вы предпочитаете nvim-web-devicons
-    config = function()
-      require("render-markdown").setup {} -- Настройка плагина markdown.nvim
-    end,
-  },
+  -- {
+  --   "MeanderingProgrammer/markdown.nvim",
+  --   lazy = false, -- Отключаем ленивую загрузку
+  --   name = "render-markdown", -- Имя плагина, необходимо только если у вас есть другой плагин с именем markdown.nvim
+  --   dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- Зависимости, если вы используете mini.nvim suite
+  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- Зависимости, если вы используете standalone mini plugins
+  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- Зависимости, если вы предпочитаете nvim-web-devicons
+  --   config = function()
+  --     require("render-markdown").setup {} -- Настройка плагина markdown.nvim
+  --   end,
+  -- },
 
   -- Настройка плагина gtranslate.nvim для перевода текста
   {
@@ -107,10 +107,10 @@ return {
     end,
   },
   -- Установка плагина lspkind
-  {
-    "onsails/lspkind-nvim",
-    lazy = false, -- Отключаем ленивую загрузку
-  },
+  -- {
+  --   "onsails/lspkind-nvim",
+  --   lazy = false, -- Отключаем ленивую загрузку
+  -- },
 
   -- Установка плагина nvim-cmp
   {
