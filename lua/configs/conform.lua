@@ -6,7 +6,7 @@ local options = {
     css = { "prettier" }, -- Для CSS файлов используем форматтер prettier
     html = { "prettier" }, -- Для HTML файлов используем форматтер prettier
     javascript = { "prettier" },
-    -- python = { "isort", "black" }, -- Для Python файлов используем форматтеры isort и black
+    python = { "isort", "black" }, -- Для Python файлов используем форматтеры isort и black
   },
 
   -- Настройки для форматирования кода при сохранении файла

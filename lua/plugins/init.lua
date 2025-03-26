@@ -1,10 +1,3 @@
--- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
--- vim.api.nvim_create_autocmd("BufWritePre", {
---   group = augroup,
---   callback = function()
---     vim.lsp.buf.format { async = false }
---   end,
--- })
 return {
   -- Настройка плагина conform.nvim для форматирования кода
   {
@@ -35,8 +28,8 @@ return {
         "css-lsp", -- LSP сервер для CSS
         "prettier", -- Форматтер для CSS и HTML
         "pyright", -- LSP сервер для Python
-        -- "isort", -- Форматтер для Python (закомментировано)
-        -- "black", -- Форматтер для Python (закомментировано)
+        "isort", -- Форматтер для Python (закомментировано)
+        "black", -- Форматтер для Python (закомментировано)
         "tailwindcss-language-server", -- LSP сервер для Tailwind CSS
       },
     },
@@ -106,30 +99,12 @@ return {
       require "configs.cmp"
     end,
   },
-  -- Установка плагина lspkind
-  -- {
-  --   "onsails/lspkind-nvim",
-  --   lazy = false, -- Отключаем ленивую загрузку
-  -- },
 
-  -- Установка плагина nvim-cmp
-  {
-    "hrsh7th/nvim-cmp",
-    lazy = false, -- Отключаем ленивую загрузку
-  },
   {
     "ggandor/leap.nvim",
     lazy = false,
     config = function()
       require("leap").add_default_mappings(true)
-    end,
-  },
-  -- Добавьте плагин nvim-snippets
-  {
-    "garymjr/nvim-snippets",
-    after = "nvim-cmp",
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load {}
     end,
   },
 }

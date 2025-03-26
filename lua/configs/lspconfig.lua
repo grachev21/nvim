@@ -18,6 +18,19 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.pyright.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    python = {
+      pythonPath = "python", -- или путь к интерпретатору
+      analysis = {
+        typeCheckingMode = "basic",
+      },
+    },
+  },
+}
+
 -- Пример настройки отдельного сервера LSP, например, для TypeScript
 lspconfig.ts_ls.setup {
   on_attach = nvlsp.on_attach, -- Функция, вызываемая при присоединении клиента LSP
@@ -45,3 +58,4 @@ lspconfig.tailwindcss.setup {
     },
   },
 }
+
