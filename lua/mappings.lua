@@ -15,4 +15,3 @@ map("n", "<leader>ln", ":e /home/grachev/Disk/notes/<CR>", opts)
 -- Настройка сочетаний клавиш для vim-bookmarks
 vim.g.bookmark_auto_save = 1
 vim.g.bookmark_auto_save_file = vim.fn.expand "C:/Users/grach/YandexDisk/notes"
-

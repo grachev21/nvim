@@ -28,6 +28,7 @@ return {
         "css-lsp",                     -- LSP сервер для CSS
         "prettier",                    -- Форматтер для CSS и HTML
         "pyright",                     -- LSP сервер для Python
+        "djlint",                      -- для форматирования Django шаблонов
         "isort",                       -- Форматтер для Python (закомментировано)
         "black",                       -- Форматтер для Python (закомментировано)
         "tailwindcss-language-server", -- LSP сервер для Tailwind CSS
@@ -125,5 +126,48 @@ return {
         "jsx",
       },
     },
+  },
+
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+
+      -- Загрузка пользовательских сниппетов
+      require("luasnip").config.setup {
+        history = true,
+        updateevents = "TextChanged,TextChangedI",
+      }
+      require("luasnip.loaders.from_lua").load { paths = "C:/Users/grach/AppData/Local/nvim/lua/my_snippets" }
+    end,
+  },
+
+  {
+    "uga-rosa/ccc.nvim",
+    lazy = false,
+    config = function()
+      local ccc = require "ccc"
+      ccc.setup {
+        -- Автоматически включать подсветку цветов
+        highlighter = {
+          auto_enable = true,
+          lsp = true, -- Интеграция с LSP (для CSS-переменных)
+        },
+        -- Поддержка форматов цветов
+        inputs = {
+          ccc.input.rgb,
+          ccc.input.hsl,
+          ccc.input.hex,
+        },
+        -- Настройки UI
+        ui = {
+          border = "rounded", -- Граница окна палитры
+          win_blend = 10,     -- Прозрачность окна
+        },
+      }
+    end,
   },
 }
