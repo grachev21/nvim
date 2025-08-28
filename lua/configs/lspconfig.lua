@@ -2,7 +2,15 @@ require("nvchad.configs.lspconfig").defaults()
 
 local lspconfig = require "lspconfig"
 
-local servers = { "html", "cssls", "emmet_ls" }
+local servers = {
+  "html",
+  "cssls",
+  "emmet_ls",
+  "tsserver", -- JavaScript/TypeScript
+  "pyright", -- Python
+  "jsonls",
+  "emmet_ls",
+}
 
 local nvlsp = require "nvchad.configs.lspconfig"
 
@@ -29,7 +37,21 @@ lspconfig.pylsp.setup {
     },
   },
 }
-
+-- Специальная настройка для Python/Django
+lspconfig.pyright.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  settings = {
+    python = {
+      analysis = {
+        typeCheckingMode = "off",
+        -- Для поддержки Django шаблонов
+        diagnosticMode = "workspace",
+        useLibraryCodeForTypes = true,
+      },
+    },
+  },
+}
 lspconfig.html.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
@@ -55,6 +77,7 @@ lspconfig.ts_ls.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
+  filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
 }
 
 lspconfig.tailwindcss.setup {
