@@ -6,7 +6,7 @@ local servers = {
   "html",
   "cssls",
   "emmet_ls",
-  "tsserver", -- JavaScript/TypeScript
+  "ts_ls", -- JavaScript/TypeScript
   "pyright", -- Python
   "jsonls",
   "emmet_ls",

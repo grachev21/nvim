@@ -192,4 +192,21 @@ return {
     "tbastos/vim-lua",
     ft = "lua",
   },
+
+  {
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    opts = {
+      snippet_engine = "luasnip", -- или "vsnip", "snippy", "ultisnips"
+    },
+    keys = {
+      {
+        "<leader>cc",
+        function()
+          require("neogen").generate {}
+        end,
+        desc = "Generate comment",
+      },
+    },
+  },
 }
