@@ -1,5 +1,3 @@
-require("nvchad.configs.lspconfig").defaults()
-
 local lspconfig = require "lspconfig"
 
 local servers = {
@@ -7,9 +5,9 @@ local servers = {
   "cssls",
   "emmet_ls",
   "ts_ls", -- JavaScript/TypeScript
-  "pyright", -- Python
   "jsonls",
   "emmet_ls",
+  "jedi_language_server", -- Добавляем Jedi LSP
 }
 
 local nvlsp = require "nvchad.configs.lspconfig"
@@ -22,36 +20,25 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.pylsp.setup {
+-- Специфическая настройка для Jedi Language Server
+lspconfig.jedi_language_server.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   settings = {
-    pylsp = {
-      plugins = {
-        jedi = {
-          enabled = true,
-          extra_dummies = "",
-          environment = "django",
-        },
+    jedi = {
+      completion = {
+        disableSnippets = false,
+      },
+      diagnostics = {
+        enable = true,
+      },
+      workspace = {
+        extraPaths = {},
       },
     },
   },
 }
--- Специальная настройка для Python/Django
-lspconfig.pyright.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  settings = {
-    python = {
-      analysis = {
-        typeCheckingMode = "off",
-        -- Для поддержки Django шаблонов
-        diagnosticMode = "workspace",
-        useLibraryCodeForTypes = true,
-      },
-    },
-  },
-}
+
 lspconfig.html.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
@@ -73,6 +60,7 @@ lspconfig.cssls.setup {
     },
   },
 }
+
 lspconfig.ts_ls.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
@@ -81,9 +69,9 @@ lspconfig.ts_ls.setup {
 }
 
 lspconfig.tailwindcss.setup {
-  on_attach = require("nvchad.configs.lspconfig").on_attach,
-  on_init = require("nvchad.configs.lspconfig").on_init,
-  capabilities = require("nvchad.configs.lspconfig").capabilities,
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
   settings = {
     tailwindCSS = {
       validate = true,
