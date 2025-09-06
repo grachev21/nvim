@@ -26,6 +26,13 @@ lspconfig.jedi_language_server.setup {
   capabilities = nvlsp.capabilities,
   settings = {
     jedi = {
+      analysis = {
+        typeCheckingMode = "basic", -- или "off", "basic", "strict"
+        autoImportCompletions = true,
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = "workspace", -- "openFilesOnly" или "workspace"
+      },
       completion = {
         disableSnippets = false,
       },

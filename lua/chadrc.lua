@@ -4,12 +4,12 @@ local options = {
   -- Настройки базовой темы
   base46 = {
     theme_toggler = false, -- Отключает переключатель темы
-    theme = "default-dark",     -- тема по умолчанию
+    theme = "bearded-arc",    -- тема по умолчанию
     hl_add = {},           -- дополнительные настройки подсветки
     hl_override = {},      -- переопределение настроек подсветки
     integrations = {},     -- интеграции
     changed_themes = {},   -- измененные темы
-    -- transparency = true, -- прозрачность
+    transparency = true,   -- прозрачность
   },
 
   -- Настройки пользовательского интерфейса
@@ -37,10 +37,10 @@ local options = {
 
     -- ленивая загрузка, когда есть 1+ буферов
     tabufline = {
-      enabled = true,                                      -- включена ли строка вкладок
-      lazyload = true,                                     -- ленивая загрузка
-      order = { "treeOffset", "buffers", "tabs", "btns" }, -- порядок элементов
-      modules = nil,                                       -- модули
+      enabled = true,                              -- включена ли строка вкладок
+      lazyload = true,                             -- ленивая загрузка
+      order = { "treeOffset", "buffers", "tabs" }, -- порядок элементов
+      modules = nil,                               -- модули
     },
   },
 
