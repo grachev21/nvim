@@ -1,3 +1,5 @@
+require("nvchad.configs.lspconfig").defaults()
+
 local lspconfig = require "lspconfig"
 
 local servers = {
@@ -5,9 +7,9 @@ local servers = {
   "cssls",
   "emmet_ls",
   "ts_ls", -- JavaScript/TypeScript
+  "pylsp",
   "jsonls",
   "emmet_ls",
-  "jedi_language_server", -- Добавляем Jedi LSP
 }
 
 local nvlsp = require "nvchad.configs.lspconfig"
@@ -20,36 +22,46 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- Специфическая настройка для Jedi Language Server
-lspconfig.jedi_language_server.setup {
+lspconfig.pylsp.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   settings = {
-    jedi = {
-      analysis = {
-        typeCheckingMode = "basic", -- или "off", "basic", "strict"
-        autoImportCompletions = true,
-        autoSearchPaths = true,
-        useLibraryCodeForTypes = true,
-        diagnosticMode = "workspace", -- "openFilesOnly" или "workspace"
-      },
-      completion = {
-        disableSnippets = false,
-      },
-      diagnostics = {
-        enable = true,
-      },
-      workspace = {
-        extraPaths = {},
+    pylsp = {
+      plugins = {
+        jedi = {
+          enabled = true,
+          extra_dummies = "",
+          environment = "django",
+        },
       },
     },
   },
 }
-
 lspconfig.html.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   filetypes = { "html", "htmldjango" },
+  settings = {
+    html = {
+      suggest = {
+        enabled = true,
+      },
+      format = {
+        enabled = true,
+      },
+      hover = {
+        documentation = true,
+        references = true,
+      },
+      validate = {
+        scripts = true,
+        styles = true,
+      },
+      lint = {
+        enabled = true, -- Включаем линтинг
+      },
+    },
+  },
 }
 
 lspconfig.cssls.setup {
@@ -67,7 +79,6 @@ lspconfig.cssls.setup {
     },
   },
 }
-
 lspconfig.ts_ls.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
@@ -76,9 +87,9 @@ lspconfig.ts_ls.setup {
 }
 
 lspconfig.tailwindcss.setup {
-  on_attach = nvlsp.on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
+  on_attach = require("nvchad.configs.lspconfig").on_attach,
+  on_init = require("nvchad.configs.lspconfig").on_init,
+  capabilities = require("nvchad.configs.lspconfig").capabilities,
   settings = {
     tailwindCSS = {
       validate = true,

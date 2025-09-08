@@ -3,7 +3,7 @@ local options = {
 
   base46 = {
     theme_toggler = false, -- Отключает переключатель темы
-    theme = "bearded-arc", -- тема по умолчанию
+    theme = "gruvbox", -- тема по умолчанию
     hl_add = {}, -- дополнительные настройки подсветки
     hl_override = {}, -- переопределение настроек подсветки
     integrations = {}, -- интеграции
@@ -44,45 +44,45 @@ local options = {
   },
 
   -- Настройки стартового экрана
-  nvdash = {
-    load_on_startup = true, -- загружать ли при старте
-    header = {
-      "                            ",
-      "     ▄▄         ▄ ▄▄▄▄▄▄▄   ",
-      "   ▄▀███▄     ▄██ █████▀    ",
-      "   ██▄▀███▄   ███           ",
-      "   ███  ▀███▄ ███           ",
-      "   ███    ▀██ ███           ",
-      "   ███      ▀ ███           ",
-      "   ▀██ █████▄▀█▀▄██████▄    ",
-      "     ▀ ▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀   ",
-      "                            ",
-      "     Powered By  eovim    ",
-      "                            ",
-    },
-
-    buttons = {
-      { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
-      { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
-      { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
-      { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
-      { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
-
-      { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
-
-      {
-        txt = function()
-          local stats = require("lazy").stats()
-          local ms = math.floor(stats.startuptime) .. " ms"
-          return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
-        end,
-        hl = "NvDashFooter",
-        no_gap = true,
-      },
-
-      { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
-    },
-  },
+  -- nvdash = {
+  --   load_on_startup = true, -- загружать ли при старте
+  --   header = {
+  --     "                            ",
+  --     "     ▄▄         ▄ ▄▄▄▄▄▄▄   ",
+  --     "   ▄▀███▄     ▄██ █████▀    ",
+  --     "   ██▄▀███▄   ███           ",
+  --     "   ███  ▀███▄ ███           ",
+  --     "   ███    ▀██ ███           ",
+  --     "   ███      ▀ ███           ",
+  --     "   ▀██ █████▄▀█▀▄██████▄    ",
+  --     "     ▀ ▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀   ",
+  --     "                            ",
+  --     "     Powered By  eovim    ",
+  --     "                            ",
+  --   },
+  --
+  --   buttons = {
+  --     { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
+  --     { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
+  --     { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
+  --     { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
+  --     { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
+  --
+  --     { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+  --
+  --     {
+  --       txt = function()
+  --         local stats = require("lazy").stats()
+  --         local ms = math.floor(stats.startuptime) .. " ms"
+  --         return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
+  --       end,
+  --       hl = "NvDashFooter",
+  --       no_gap = true,
+  --     },
+  --
+  --     -- { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
+  --   },
+  -- },
 
   -- Настройки терминала
   term = {

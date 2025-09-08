@@ -145,32 +145,6 @@ return {
     end,
   },
 
-  {
-    "uga-rosa/ccc.nvim",
-    lazy = false,
-    config = function()
-      local ccc = require "ccc"
-      ccc.setup {
-        -- Автоматически включать подсветку цветов
-        highlighter = {
-          auto_enable = true,
-          lsp = true, -- Интеграция с LSP (для CSS-переменных)
-        },
-        -- Поддержка форматов цветов
-        inputs = {
-          ccc.input.rgb,
-          ccc.input.hsl,
-          ccc.input.hex,
-        },
-        -- Настройки UI
-        ui = {
-          border = "rounded", -- Граница окна палитры
-          win_blend = 10, -- Прозрачность окна
-        },
-      }
-    end,
-  },
-
   -- Дополнительные плагины для Django и JavaScript
   {
     "windwp/nvim-ts-autotag", -- Автозакрытие тегов для HTML/JSX
@@ -199,10 +173,6 @@ return {
   },
   {
     "christoomey/vim-tmux-navigator", -- Для навигации между tmux и nvim
-    event = "VeryLazy",
-  },
-  {
-    "wakatime/vim-wakatime",
     event = "VeryLazy",
   },
 }
